@@ -51,7 +51,8 @@ public class ListActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         MovieDownloadTask task = new MovieDownloadTask();
-        task.execute("Die Hard");
+        Bundle extras = getIntent().getExtras();
+        task.execute(extras.getString("SEARCHING"));
 
     }
 

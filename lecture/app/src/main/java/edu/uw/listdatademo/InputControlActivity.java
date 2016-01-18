@@ -1,5 +1,6 @@
 package edu.uw.listdatademo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 public class InputControlActivity extends AppCompatActivity {
 
     private static final String TAG = "InputControl";
+    private static String SEARCHING="whore";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,10 @@ public class InputControlActivity extends AppCompatActivity {
                 count++;
                 String typed = text.getText().toString();
                 Log.v(TAG, "You typed: "+typed);
+                Intent i = new Intent(InputControlActivity.this, ListActivity.class);
+                SEARCHING = typed;
+                i.putExtra("SEARCHING",SEARCHING);
+                startActivity(i);
             }
         });
 
